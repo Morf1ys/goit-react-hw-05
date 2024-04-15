@@ -1,10 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
 import css from './MovieList.module.css';
-
+import defaultImage from '../../assets/noPoster.jpg'; 
 
 const MovieList = ({ movies }) => {
   const location = useLocation();
-const defaultImage = '../../../public/noPoster.jpg'; 
+
   return (
     <div>
       <ul className={css['cont-movie']}>
