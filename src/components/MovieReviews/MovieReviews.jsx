@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from '../../Api/tmdbApi';  
-
+import css from './MovieReviews.module.css';
 
 const MovieReviews = () => {
   const { movieId } = useParams();
@@ -19,19 +19,19 @@ const MovieReviews = () => {
   }, [movieId]);
 
   return (
-    <div>
-      <h2>Огляди</h2>
-      {reviews.length > 0 ? (
-        reviews.map(review => (
-          <div key={review.id}>
-            <h4>{review.author}</h4>
-            <p>{review.content}</p>
-          </div>
-        ))
-      ) : (
-        <p>Огляди відсутні.</p>
-      )}
-    </div>
+    <div className={css['reviews-container']}>
+  <h2 className={css['reviews-title']}>Reviews</h2>
+  {reviews.length > 0 ? (
+    reviews.map(review => (
+      <div key={review.id} className={css['review-item']}>
+        <h4 className={css['review-author']}>{review.author}</h4>
+        <p className={css['review-content']}>{review.content}</p>
+      </div>
+    ))
+  ) : (
+    <p className={css['no-reviews']}>Reviews none.</p>
+  )}
+</div>
   );
 };
 

@@ -1,11 +1,13 @@
 
 import { Link } from 'react-router-dom';
+import css from './NotFoundPage.module.css';
 
 const NotFoundPage = () => (
-  <div>
-    <h1>404 - Сторінку не знайдено</h1>
-    <p>{`На жаль, сторінка, яку ви шукаєте, не існує.`}</p>
-    <Link to="/">Повернутися на головну сторінку</Link>
+  <div className={css['not-fon-page-cont']}>
+    <img className={css.imegfound} src="../../../public/404.png" alt="not found" />
+    <h1>404 - Page not found</h1>
+    <p>{`Sorry, the page you are looking for does not exist.`}</p>
+    <Link to="/">Turn to the front side</Link>
   </div>
 );
 

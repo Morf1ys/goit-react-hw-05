@@ -2,7 +2,7 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
-import './index.module.css';
+import css from'./index.module.css';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const MoviesPage = lazy(() => import('./pages/MoviesPage/MoviesPage'));
@@ -12,9 +12,9 @@ const MovieCast = lazy(() => import('./components/MovieCast/MovieCast'));
 const MovieReviews = lazy(() => import('./components/MovieReviews/MovieReviews'));
 
 const App = () => (
-  <>
+  <div className={css['main-cont']}>
     <Navigation />
-    <Suspense fallback={<div>Завантаження...</div>}>
+    <Suspense fallback={<div>Loading...</div>}>
       
 <Routes>
   <Route path="/" element={<HomePage />} />
@@ -27,7 +27,7 @@ const App = () => (
 </Routes>
 
     </Suspense>
-  </>
+  </div>
 );
 
 export default App;

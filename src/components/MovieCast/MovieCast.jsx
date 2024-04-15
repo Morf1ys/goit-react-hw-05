@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import { fetchMovieCast } from '../../Api/tmdbApi'; 
 import { useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-
+import css from './MovieCast.module.css';
 
 
 const MovieCast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]); 
-
+  const defaultImage = '../../../public/noFoto.jpg';
   useEffect(() => {
     fetchMovieCast(movieId)
       .then(data => {
@@ -20,21 +20,26 @@ const MovieCast = () => {
       });
   }, [movieId]);
 
-  return (
-    <div>
-      <h2>Акторський склад</h2>
-      {cast.length > 0 ? (
-        cast.map(actor => (
-          <div key={uuidv4()}>
-            {actor.profile_path && (
-              <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt={actor.name} style={{ width: 50 }} />
-            )}
-            <p>{actor.name} as {actor.character}</p>
-          </div>
-        ))
-      ) : (
-        <p>Акторський склад відсутній.</p>
-      )}
+ return (
+    <div className={css['cast-container']}>
+      
+      <div className={css['cast-grid']}>
+        {cast.length > 0 ? (
+          cast.map(actor => (
+            <div className={css['cast-item']} key={actor.id || uuidv4()}>
+              <img 
+                src={actor.profile_path ? `https://image.tmdb.org/t/p/w200${actor.profile_path}` : defaultImage} 
+                alt={actor.name} 
+                className={css['cast-image']} 
+              />
+              <p className={css['cast-name']}>{actor.name}</p>
+              <p className={css['cast-character']}>{actor.character}</p>
+            </div>
+          ))
+        ) : (
+          <p className={css['csast-mising']}>There is no cast.</p>
+        )}
+      </div>
     </div>
   );
 };

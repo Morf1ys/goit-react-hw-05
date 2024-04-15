@@ -1,9 +1,7 @@
-/* src/index.css */
-
 body {
   font-family: sans-serif;
   line-height: 1.5;
-  background-color: aqua !important;
+  background-color: white;
 }
 
 h1,
@@ -28,4 +26,8 @@ img {
 }
 ul {
   list-style: none;
+}
+.main-cont {
+  width: 1200px;
+  margin: 0 auto;
 }

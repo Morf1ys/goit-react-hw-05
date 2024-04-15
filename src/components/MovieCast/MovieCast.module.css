@@ -1,0 +1,42 @@
+.cast-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.cast-title {
+  margin-bottom: 20px;
+}
+
+.cast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.cast-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.cast-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.cast-name,
+.cast-character {
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.cast-missing {
+  font-size: 18px;
+}

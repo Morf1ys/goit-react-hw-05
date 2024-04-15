@@ -1,0 +1,27 @@
+.btn-inp {
+  border-radius: 5px;
+  border: none;
+  width: 60px;
+  height: 30px;
+  background-color: rgb(43, 111, 46);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+.inp-cont {
+  padding: 5px;
+  border-color: rgb(43, 111, 46);
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 30px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form-cont {
+  display: flex;
+  gap: 10px;
+  text-align: center;
+}

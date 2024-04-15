@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { searchMovie } from '../../Api/tmdbApi';
 import MovieList from '../../components/MovieList/MovieList';
-
+import css from './MoviesPage.module.css';
 const MoviesPage = () => {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
@@ -28,15 +28,15 @@ const MoviesPage = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSearch}>
-        <input
+    <div className={css.form}>
+      <form className={css['form-cont']} onSubmit={handleSearch}>
+        <input className={css['inp-cont']}
           type="text"
-          placeholder="Пошук фільмів..."
+          placeholder="Search movies..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button type="submit">Пошук</button>
+        <button className={css['btn-inp']} type="submit">Search</button>
       </form>
       <MovieList movies={movies} />
     </div>

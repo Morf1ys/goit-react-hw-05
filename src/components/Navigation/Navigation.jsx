@@ -1,18 +1,16 @@
-
 import { NavLink } from 'react-router-dom';
 import css from './Navigation.module.css'
 
 
-
-const linlActive = ({ isActive }) => {
-  return (css.link, isActive && css.active);
+const linkActive = ({ isActive }) => {
+  return isActive ? `${css.link} ${css.active}` : css.link;
 };
 
 
 const Navigation = () => (
-  <nav>
-    <NavLink to="/" className={linlActive} end>Головна</NavLink>
-    <NavLink to="/movies" className={linlActive}>Пошук фільмів</NavLink>
+  <nav className={css['head-cont']}>
+    <NavLink to="/" className={linkActive} end>Home</NavLink>
+    <NavLink to="/movies" className={linkActive}>Movies</NavLink>
   </nav>
 );
 
