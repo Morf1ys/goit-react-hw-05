@@ -3,12 +3,12 @@ import { fetchMovieCast } from '../../Api/tmdbApi';
 import { useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import css from './MovieCast.module.css';
+import defaultImage from '../../assets/noFoto.jpg';
 
 
 const MovieCast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]); 
-  const defaultImage = '../../../public/noFoto.jpg';
   useEffect(() => {
     fetchMovieCast(movieId)
       .then(data => {

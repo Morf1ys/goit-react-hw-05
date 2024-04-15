@@ -2,8 +2,7 @@ import {useEffect, useState} from 'react';
 import { useParams, Link, Outlet, useLocation, useNavigate} from 'react-router-dom';
 import { fetchMovieDetails } from '../../Api/tmdbApi';
 import css from './MovieDetailsPage.module.css';
-
-
+import defaultImage from '../../assets/noPoster.jpg';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -11,7 +10,7 @@ const MovieDetailsPage = () => {
   const location = useLocation();
   const backLink = location.state?.from || "/";
   const [movie, setMovie] = useState(null);
- const defaultImage = '../../../public//noPoster.jpg'
+
   useEffect(() => {
     fetchMovieDetails(movieId).then(data => {
       setMovie(data);
