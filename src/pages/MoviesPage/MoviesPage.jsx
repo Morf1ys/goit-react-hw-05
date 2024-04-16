@@ -3,6 +3,9 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { searchMovie } from '../../Api/tmdbApi';
 import MovieList from '../../components/MovieList/MovieList';
 import css from './MoviesPage.module.css';
+
+
+
 const MoviesPage = () => {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
